@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module auth</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>auth</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/leocao/gitlab/T18B-Blue/src/auth.py">/Users/leocao/gitlab/T18B-Blue/src/auth.py</a></font></td></tr></table>
+    <p><tt>-&nbsp;Code&nbsp;for&nbsp;auth.py&nbsp;in&nbsp;T18B&nbsp;-&nbsp;Blue&nbsp;Project</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="abstractions.html">abstractions</a><br>
+<a href="jwt.html">jwt</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="smtplib.html">smtplib</a><br>
+</td><td width="25%" valign=top><a href="ssl.html">ssl</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-auth_login"><strong>auth_login</strong></a>(email, password)</dt><dd><tt>-&nbsp;Function,&nbsp;which&nbsp;authorises&nbsp;the&nbsp;login&nbsp;for&nbsp;a&nbsp;user<br>
+-&nbsp;returns&nbsp;the&nbsp;users&nbsp;token&nbsp;and&nbsp;user_id</tt></dd></dl>
+ <dl><dt><a name="-auth_logout"><strong>auth_logout</strong></a>(token)</dt><dd><tt>-&nbsp;Function,&nbsp;which&nbsp;logs&nbsp;out&nbsp;a&nbsp;user&nbsp;when&nbsp;called.</tt></dd></dl>
+ <dl><dt><a name="-auth_password_reset"><strong>auth_password_reset</strong></a>(reset_code, new_password)</dt><dd><tt>-&nbsp;If&nbsp;the&nbsp;reset&nbsp;code&nbsp;matches&nbsp;with&nbsp;another&nbsp;user<br>
+-&nbsp;Change&nbsp;there&nbsp;password&nbsp;to&nbsp;the&nbsp;new&nbsp;password</tt></dd></dl>
+ <dl><dt><a name="-auth_password_reset_request"><strong>auth_password_reset_request</strong></a>(email)</dt><dd><tt>-&nbsp;if&nbsp;the&nbsp;email&nbsp;given&nbsp;belongs&nbsp;to&nbsp;an&nbsp;account,<br>
+it&nbsp;will&nbsp;send&nbsp;a&nbsp;code&nbsp;that&nbsp;would&nbsp;help&nbsp;reset&nbsp;the&nbsp;password<br>
+-&nbsp;Code&nbsp;will&nbsp;be&nbsp;used&nbsp;in&nbsp;password_reset</tt></dd></dl>
+ <dl><dt><a name="-auth_register"><strong>auth_register</strong></a>(email, password, name_first, name_last)</dt><dd><tt>-&nbsp;Function,&nbsp;which&nbsp;registers&nbsp;a&nbsp;user<br>
+-&nbsp;Returns&nbsp;the&nbsp;users&nbsp;token&nbsp;and&nbsp;new&nbsp;user_id</tt></dd></dl>
+ <dl><dt><a name="-check_unique_handle"><strong>check_unique_handle</strong></a>(handle)</dt><dd><tt>-&nbsp;Function,&nbsp;checks&nbsp;if&nbsp;the&nbsp;handle&nbsp;is&nbsp;unique&nbsp;and&nbsp;not&nbsp;used&nbsp;by&nbsp;anyone&nbsp;else&nbsp;in&nbsp;the&nbsp;program</tt></dd></dl>
+ <dl><dt><a name="-check_valid_token"><strong>check_valid_token</strong></a>(token: str)</dt><dd><tt>-&nbsp;Function,&nbsp;which&nbsp;checks&nbsp;if&nbsp;the&nbsp;given&nbsp;token&nbsp;is&nbsp;valid&nbsp;or&nbsp;not</tt></dd></dl>
+ <dl><dt><a name="-create_handle"><strong>create_handle</strong></a>(firstname, lastname, unique_int=None)</dt><dd><tt>-&nbsp;Function,&nbsp;which&nbsp;creates&nbsp;a&nbsp;handle&nbsp;for&nbsp;a&nbsp;user</tt></dd></dl>
+ <dl><dt><a name="-email_check"><strong>email_check</strong></a>(email)</dt><dd><tt>-&nbsp;Function,&nbsp;which&nbsp;gets&nbsp;called&nbsp;when&nbsp;you&nbsp;need&nbsp;to&nbsp;validate&nbsp;an&nbsp;inputed&nbsp;email</tt></dd></dl>
+ <dl><dt><a name="-get_user_from_token"><strong>get_user_from_token</strong></a>(token)</dt><dd><tt>-&nbsp;Function,&nbsp;which&nbsp;returns&nbsp;the&nbsp;user_id&nbsp;for&nbsp;a&nbsp;specific&nbsp;user&nbsp;from&nbsp;there&nbsp;token</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>RESET_SECRET</strong> = 'BluePW'<br>
+<strong>SECRET</strong> = 'Blue'</td></tr></table>
+</body></html>

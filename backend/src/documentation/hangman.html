@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module hangman</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>hangman</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/leocao/gitlab/T18B-Blue/src/hangman.py">/Users/leocao/gitlab/T18B-Blue/src/hangman.py</a></font></td></tr></table>
+    <p><tt>Backend&nbsp;functionality&nbsp;for&nbsp;hangman</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="abstractions.html">abstractions</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-alternate_get_word"><strong>alternate_get_word</strong></a>()</dt><dd><tt>Alternative&nbsp;method&nbsp;to&nbsp;get&nbsp;a&nbsp;random&nbsp;word.</tt></dd></dl>
+ <dl><dt><a name="-create_game"><strong>create_game</strong></a>(creator_id: int, channel_id: int)</dt><dd><tt>Create&nbsp;a&nbsp;game&nbsp;of&nbsp;hangman</tt></dd></dl>
+ <dl><dt><a name="-get_word"><strong>get_word</strong></a>()</dt><dd><tt>Returns&nbsp;a&nbsp;random&nbsp;word&nbsp;for&nbsp;hangman</tt></dd></dl>
+ <dl><dt><a name="-hangman_active"><strong>hangman_active</strong></a>(token: str, channel_id: int)</dt><dd><tt>Raises&nbsp;input&nbsp;error&nbsp;if&nbsp;the&nbsp;channel&nbsp;id&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;channel&nbsp;id.</tt></dd></dl>
+ <dl><dt><a name="-hangman_answer"><strong>hangman_answer</strong></a>(token: str, channel_id: int, current_hangman_id: int)</dt><dd><tt>Raises&nbsp;InputError&nbsp;if&nbsp;the&nbsp;channel_id&nbsp;does&nbsp;not&nbsp;exist.<br>
+Raises&nbsp;InputError&nbsp;if&nbsp;the&nbsp;user&nbsp;is&nbsp;not&nbsp;in&nbsp;the&nbsp;channel.<br>
+Raises&nbsp;AccessError&nbsp;if&nbsp;the&nbsp;lives&nbsp;of&nbsp;this&nbsp;game&nbsp;is&nbsp;not&nbsp;zero.<br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;dictionary&nbsp;which&nbsp;contains&nbsp;the&nbsp;correct&nbsp;word&nbsp;if&nbsp;this&nbsp;game&nbsp;is&nbsp;lost</tt></dd></dl>
+ <dl><dt><a name="-hangman_details"><strong>hangman_details</strong></a>(token: str, channel_id: int)</dt><dd><tt>Raises&nbsp;input&nbsp;error&nbsp;if&nbsp;the&nbsp;channel&nbsp;id&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;channel&nbsp;id<br>
+Raises&nbsp;input&nbsp;error&nbsp;if&nbsp;there&nbsp;is&nbsp;not&nbsp;a&nbsp;hangman&nbsp;game&nbsp;in&nbsp;progress&nbsp;in&nbsp;that&nbsp;channel<br>
+&nbsp;<br>
+Raises&nbsp;access&nbsp;error&nbsp;if&nbsp;the&nbsp;user&nbsp;is&nbsp;not&nbsp;part&nbsp;of&nbsp;the&nbsp;given&nbsp;channel<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;dictionary&nbsp;containing&nbsp;an&nbsp;array&nbsp;of&nbsp;guesses,&nbsp;an&nbsp;array&nbsp;of&nbsp;incorrect&nbsp;guesses,<br>
+and&nbsp;the&nbsp;number&nbsp;of&nbsp;lives&nbsp;left</tt></dd></dl>
+ <dl><dt><a name="-hangman_guess"><strong>hangman_guess</strong></a>(token: str, channel_id: int, guess: str)</dt><dd><tt>Raises&nbsp;input&nbsp;error&nbsp;if&nbsp;the&nbsp;channel&nbsp;id&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;channel&nbsp;id<br>
+Raises&nbsp;input&nbsp;error&nbsp;if&nbsp;the&nbsp;guess&nbsp;is&nbsp;more&nbsp;than&nbsp;1&nbsp;letter&nbsp;long<br>
+Raises&nbsp;input&nbsp;error&nbsp;if&nbsp;there&nbsp;is&nbsp;not&nbsp;a&nbsp;hangman&nbsp;game&nbsp;in&nbsp;progress&nbsp;in&nbsp;that&nbsp;channel<br>
+&nbsp;<br>
+Raises&nbsp;access&nbsp;error&nbsp;if&nbsp;the&nbsp;user&nbsp;is&nbsp;not&nbsp;part&nbsp;of&nbsp;the&nbsp;given&nbsp;channel<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;dictionary&nbsp;containing&nbsp;an&nbsp;array&nbsp;of&nbsp;guesses,&nbsp;an&nbsp;array&nbsp;of&nbsp;incorrect&nbsp;guesses,<br>
+and&nbsp;the&nbsp;number&nbsp;of&nbsp;lives&nbsp;left<br>
+&nbsp;<br>
+Check&nbsp;if&nbsp;the&nbsp;game&nbsp;is&nbsp;finished&nbsp;and&nbsp;if&nbsp;the&nbsp;hangman_id&nbsp;is&nbsp;set&nbsp;back&nbsp;to&nbsp;None</tt></dd></dl>
+ <dl><dt><a name="-hangman_start"><strong>hangman_start</strong></a>(token: str, channel_id: int)</dt><dd><tt>Raises&nbsp;input&nbsp;error&nbsp;if&nbsp;the&nbsp;channel&nbsp;id&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;channel&nbsp;id<br>
+Raises&nbsp;input&nbsp;error&nbsp;if&nbsp;there&nbsp;is&nbsp;already&nbsp;a&nbsp;hangman&nbsp;game&nbsp;in&nbsp;progress&nbsp;in&nbsp;that&nbsp;channel<br>
+&nbsp;<br>
+Raises&nbsp;access&nbsp;error&nbsp;if&nbsp;the&nbsp;user&nbsp;is&nbsp;not&nbsp;part&nbsp;of&nbsp;the&nbsp;given&nbsp;channel<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;dictionary&nbsp;containing&nbsp;an&nbsp;array&nbsp;of&nbsp;guesses,&nbsp;an&nbsp;array&nbsp;of&nbsp;incorrect&nbsp;guesses,<br>
+and&nbsp;the&nbsp;number&nbsp;of&nbsp;lives&nbsp;left</tt></dd></dl>
+ <dl><dt><a name="-make_guess"><strong>make_guess</strong></a>(hangman_id: int, letter: str)</dt><dd><tt>Make&nbsp;a&nbsp;guess&nbsp;in&nbsp;a&nbsp;hangman&nbsp;game.</tt></dd></dl>
+</td></tr></table>
+</body></html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module message</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>message</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ccooper%5Cdocuments%5Cuniversity%5Ccomp1531%5Cassignment%5Ct18b-blue%5Csrc%5Cmessage.py">c:\users\cooper\documents\university\comp1531\assignment\t18b-blue\src\message.py</a></font></td></tr></table>
+    <p><tt>Python&nbsp;program&nbsp;that&nbsp;has&nbsp;all&nbsp;functions&nbsp;about&nbsp;message&nbsp;of&nbsp;slackr</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="abstractions.html">abstractions</a><br>
+</td><td width="25%" valign=top><a href="auth.html">auth</a><br>
+</td><td width="25%" valign=top><a href="datetime.html">datetime</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-check_unsent_messages"><strong>check_unsent_messages</strong></a>()</dt><dd><tt>Helper&nbsp;function&nbsp;to&nbsp;check&nbsp;unsent&nbsp;messages,<br>
+used&nbsp;in&nbsp;message_sendlater&nbsp;function</tt></dd></dl>
+ <dl><dt><a name="-mark_standups_as_completed"><strong>mark_standups_as_completed</strong></a>()</dt><dd><tt>Helper&nbsp;function&nbsp;to&nbsp;change&nbsp;boolean&nbsp;value&nbsp;when&nbsp;calling&nbsp;standup</tt></dd></dl>
+ <dl><dt><a name="-message_edit"><strong>message_edit</strong></a>(token: str, message_id: int, message: str)</dt><dd><tt>Given&nbsp;a&nbsp;message,&nbsp;update&nbsp;it's&nbsp;text&nbsp;with&nbsp;new&nbsp;text.<br>
+If&nbsp;the&nbsp;new&nbsp;message&nbsp;is&nbsp;an&nbsp;empty&nbsp;string,&nbsp;the&nbsp;message&nbsp;is&nbsp;deleted.<br>
+&nbsp;<br>
+AccessError&nbsp;when&nbsp;none&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;true:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Message&nbsp;with&nbsp;message_id&nbsp;was&nbsp;sent&nbsp;by&nbsp;the&nbsp;authorised&nbsp;user&nbsp;making&nbsp;this&nbsp;request<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;authorised&nbsp;user&nbsp;is&nbsp;an&nbsp;owner&nbsp;of&nbsp;this&nbsp;channel&nbsp;or&nbsp;the&nbsp;slackr</tt></dd></dl>
+ <dl><dt><a name="-message_pin"><strong>message_pin</strong></a>(token: str, message_id: int)</dt><dd><tt>Given&nbsp;a&nbsp;message&nbsp;within&nbsp;a&nbsp;channel,<br>
+mark&nbsp;it&nbsp;as&nbsp;"pinned"&nbsp;to&nbsp;be&nbsp;given&nbsp;special&nbsp;display&nbsp;treatment&nbsp;by&nbsp;the&nbsp;frontend<br>
+&nbsp;<br>
+Raises&nbsp;InputError&nbsp;when&nbsp;any&nbsp;of:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;message_id&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Message&nbsp;with&nbsp;ID&nbsp;message_id&nbsp;is&nbsp;already&nbsp;pinned<br>
+&nbsp;<br>
+Raises&nbsp;AccessError&nbsp;when&nbsp;any&nbsp;of:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;authorised&nbsp;user&nbsp;is&nbsp;not&nbsp;a&nbsp;member&nbsp;of&nbsp;the&nbsp;channel&nbsp;that&nbsp;the&nbsp;message&nbsp;is&nbsp;within<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;authorised&nbsp;user&nbsp;is&nbsp;not&nbsp;an&nbsp;owner</tt></dd></dl>
+ <dl><dt><a name="-message_react"><strong>message_react</strong></a>(token: str, message_id: int, react_id: int)</dt><dd><tt>Given&nbsp;a&nbsp;message&nbsp;within&nbsp;a&nbsp;channel&nbsp;the&nbsp;authorised&nbsp;user&nbsp;is&nbsp;part&nbsp;of,<br>
+add&nbsp;a&nbsp;"react"&nbsp;to&nbsp;that&nbsp;particular&nbsp;message<br>
+&nbsp;<br>
+Raises&nbsp;InputError&nbsp;when&nbsp;any&nbsp;of:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;message_id&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;message&nbsp;within&nbsp;a&nbsp;channel&nbsp;that&nbsp;the&nbsp;authorised&nbsp;user&nbsp;has&nbsp;joined<br>
+&nbsp;&nbsp;&nbsp;&nbsp;react_id&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;React&nbsp;ID.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;only&nbsp;valid&nbsp;react&nbsp;ID&nbsp;the&nbsp;frontend&nbsp;has&nbsp;is&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Message&nbsp;with&nbsp;ID&nbsp;message_id&nbsp;already&nbsp;contains&nbsp;an&nbsp;active&nbsp;React<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;ID&nbsp;react_id&nbsp;from&nbsp;the&nbsp;authorised&nbsp;user</tt></dd></dl>
+ <dl><dt><a name="-message_remove"><strong>message_remove</strong></a>(token: str, message_id: int)</dt><dd><tt>Given&nbsp;a&nbsp;message_id&nbsp;for&nbsp;a&nbsp;message,<br>
+this&nbsp;message&nbsp;is&nbsp;removed&nbsp;from&nbsp;the&nbsp;channel<br>
+&nbsp;<br>
+InputError&nbsp;when&nbsp;any&nbsp;of:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Message&nbsp;(based&nbsp;on&nbsp;ID)&nbsp;no&nbsp;longer&nbsp;exists<br>
+&nbsp;<br>
+AccessError&nbsp;when&nbsp;none&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;true:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Message&nbsp;with&nbsp;message_id&nbsp;was&nbsp;sent&nbsp;by&nbsp;the&nbsp;authorised&nbsp;user&nbsp;making&nbsp;this&nbsp;request<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;authorised&nbsp;user&nbsp;is&nbsp;an&nbsp;owner&nbsp;of&nbsp;this&nbsp;channel&nbsp;or&nbsp;the&nbsp;slackr</tt></dd></dl>
+ <dl><dt><a name="-message_send"><strong>message_send</strong></a>(token: str, channel_id: int, message: str)</dt><dd><tt>Send&nbsp;a&nbsp;message&nbsp;from&nbsp;authorised_user&nbsp;to&nbsp;the&nbsp;channel&nbsp;specified&nbsp;by&nbsp;channel_id<br>
+&nbsp;<br>
+Raises&nbsp;InputError&nbsp;when:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;message&nbsp;is&nbsp;more&nbsp;than&nbsp;1000&nbsp;characters<br>
+Raises&nbsp;AccessError&nbsp;when:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;authorised&nbsp;user&nbsp;has&nbsp;not&nbsp;joined&nbsp;the&nbsp;channel&nbsp;they&nbsp;are&nbsp;trying&nbsp;to&nbsp;post&nbsp;to</tt></dd></dl>
+ <dl><dt><a name="-message_sendlater"><strong>message_sendlater</strong></a>(token: str, channel_id: int, message: str, time_sent: int)</dt><dd><tt>Send&nbsp;a&nbsp;message&nbsp;from&nbsp;authorised_user&nbsp;to&nbsp;the&nbsp;channel&nbsp;specified&nbsp;by<br>
+channel_id&nbsp;automatically&nbsp;at&nbsp;a&nbsp;specified&nbsp;time&nbsp;in&nbsp;the&nbsp;future<br>
+&nbsp;<br>
+Raises&nbsp;InputError&nbsp;when&nbsp;any&nbsp;of:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Channel&nbsp;ID&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;channel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Message&nbsp;is&nbsp;more&nbsp;than&nbsp;1000&nbsp;characters<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Time&nbsp;sent&nbsp;is&nbsp;a&nbsp;time&nbsp;in&nbsp;the&nbsp;past<br>
+Raises&nbsp;AccessError&nbsp;when:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;authorised&nbsp;user&nbsp;has&nbsp;not&nbsp;joined&nbsp;the&nbsp;channel&nbsp;they&nbsp;are&nbsp;trying&nbsp;to&nbsp;post&nbsp;to</tt></dd></dl>
+ <dl><dt><a name="-message_unpin"><strong>message_unpin</strong></a>(token: str, message_id: int)</dt><dd><tt>Given&nbsp;a&nbsp;message&nbsp;within&nbsp;a&nbsp;channel,&nbsp;remove&nbsp;it's&nbsp;mark&nbsp;as&nbsp;unpinned<br>
+&nbsp;<br>
+InputError&nbsp;when&nbsp;any&nbsp;of:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;message_id&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Message&nbsp;with&nbsp;ID&nbsp;message_id&nbsp;is&nbsp;already&nbsp;unpinned<br>
+&nbsp;<br>
+AccessError&nbsp;when&nbsp;any&nbsp;of:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;authorised&nbsp;user&nbsp;is&nbsp;not&nbsp;a&nbsp;member&nbsp;of&nbsp;the&nbsp;channel&nbsp;that&nbsp;the&nbsp;message&nbsp;is&nbsp;within<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;authorised&nbsp;user&nbsp;is&nbsp;not&nbsp;an&nbsp;owner</tt></dd></dl>
+ <dl><dt><a name="-message_unreact"><strong>message_unreact</strong></a>(token: str, message_id: int, react_id: int)</dt><dd><tt>Given&nbsp;a&nbsp;message&nbsp;within&nbsp;a&nbsp;channel&nbsp;the&nbsp;authorised&nbsp;user&nbsp;is&nbsp;part&nbsp;of,<br>
+remove&nbsp;a&nbsp;"react"&nbsp;to&nbsp;that&nbsp;particular&nbsp;message<br>
+&nbsp;<br>
+Raises&nbsp;InputError&nbsp;when:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;message_id&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;within&nbsp;a&nbsp;channel&nbsp;that&nbsp;the&nbsp;authorised&nbsp;user&nbsp;has&nbsp;joined<br>
+&nbsp;&nbsp;&nbsp;&nbsp;react_id&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;React&nbsp;ID<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Message&nbsp;with&nbsp;ID&nbsp;message_id&nbsp;does&nbsp;not&nbsp;contain&nbsp;an&nbsp;active&nbsp;React&nbsp;with&nbsp;ID&nbsp;react_id</tt></dd></dl>
+ <dl><dt><a name="-send_unsent_message"><strong>send_unsent_message</strong></a>(message_id)</dt><dd><tt>Helper&nbsp;function&nbsp;to&nbsp;send&nbsp;unsent&nbsp;message,<br>
+after&nbsp;checking&nbsp;there&nbsp;is&nbsp;unsent&nbsp;messages&nbsp;in&nbsp;the&nbsp;channel</tt></dd></dl>
+</td></tr></table>
+</body></html>

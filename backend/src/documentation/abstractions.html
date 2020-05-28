@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module abstractions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>abstractions</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ccooper%5Cdocuments%5Cuniversity%5Ccomp1531%5Cassignment%5Ct18b-blue%5Csrc%5Cabstractions.py">c:\users\cooper\documents\university\comp1531\assignment\t18b-blue\src\abstractions.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;file&nbsp;contains&nbsp;abstractions&nbsp;for&nbsp;working&nbsp;with&nbsp;the&nbsp;JSON&nbsp;files.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="datetime.html">datetime</a><br>
+</td><td width="25%" valign=top><a href="json.html">json</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="json.encoder.html#JSONEncoder">json.encoder.JSONEncoder</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="abstractions.html#DateTimeEncoder">DateTimeEncoder</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DateTimeEncoder">class <strong>DateTimeEncoder</strong></a>(<a href="json.encoder.html#JSONEncoder">json.encoder.JSONEncoder</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#DateTimeEncoder">DateTimeEncoder</a>(*,&nbsp;skipkeys=False,&nbsp;ensure_ascii=True,&nbsp;check_circular=True,&nbsp;allow_nan=True,&nbsp;sort_keys=False,&nbsp;indent=None,&nbsp;separators=None,&nbsp;default=None)<br>
+&nbsp;<br>
+Encoders&nbsp;to&nbsp;help&nbsp;with&nbsp;coverting&nbsp;datetimes<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="abstractions.html#DateTimeEncoder">DateTimeEncoder</a></dd>
+<dd><a href="json.encoder.html#JSONEncoder">json.encoder.JSONEncoder</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DateTimeEncoder-default"><strong>default</strong></a>(self, obj)</dt><dd><tt>Implement&nbsp;this&nbsp;method&nbsp;in&nbsp;a&nbsp;subclass&nbsp;such&nbsp;that&nbsp;it&nbsp;returns<br>
+a&nbsp;serializable&nbsp;object&nbsp;for&nbsp;``o``,&nbsp;or&nbsp;calls&nbsp;the&nbsp;base&nbsp;implementation<br>
+(to&nbsp;raise&nbsp;a&nbsp;``TypeError``).<br>
+&nbsp;<br>
+For&nbsp;example,&nbsp;to&nbsp;support&nbsp;arbitrary&nbsp;iterators,&nbsp;you&nbsp;could<br>
+implement&nbsp;default&nbsp;like&nbsp;this::<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;<a href="#DateTimeEncoder-default">default</a>(self,&nbsp;o):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iterable&nbsp;=&nbsp;iter(o)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;except&nbsp;TypeError:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;list(iterable)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Let&nbsp;the&nbsp;base&nbsp;class&nbsp;default&nbsp;method&nbsp;raise&nbsp;the&nbsp;TypeError<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;<a href="json.encoder.html#JSONEncoder">JSONEncoder</a>.<a href="#DateTimeEncoder-default">default</a>(self,&nbsp;o)</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="json.encoder.html#JSONEncoder">json.encoder.JSONEncoder</a>:<br>
+<dl><dt><a name="DateTimeEncoder-__init__"><strong>__init__</strong></a>(self, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, sort_keys=False, indent=None, separators=None, default=None)</dt><dd><tt>Constructor&nbsp;for&nbsp;<a href="json.encoder.html#JSONEncoder">JSONEncoder</a>,&nbsp;with&nbsp;sensible&nbsp;defaults.<br>
+&nbsp;<br>
+If&nbsp;skipkeys&nbsp;is&nbsp;false,&nbsp;then&nbsp;it&nbsp;is&nbsp;a&nbsp;TypeError&nbsp;to&nbsp;attempt<br>
+encoding&nbsp;of&nbsp;keys&nbsp;that&nbsp;are&nbsp;not&nbsp;str,&nbsp;int,&nbsp;float&nbsp;or&nbsp;None.&nbsp;&nbsp;If<br>
+skipkeys&nbsp;is&nbsp;True,&nbsp;such&nbsp;items&nbsp;are&nbsp;simply&nbsp;skipped.<br>
+&nbsp;<br>
+If&nbsp;ensure_ascii&nbsp;is&nbsp;true,&nbsp;the&nbsp;output&nbsp;is&nbsp;guaranteed&nbsp;to&nbsp;be&nbsp;str<br>
+objects&nbsp;with&nbsp;all&nbsp;incoming&nbsp;non-ASCII&nbsp;characters&nbsp;escaped.&nbsp;&nbsp;If<br>
+ensure_ascii&nbsp;is&nbsp;false,&nbsp;the&nbsp;output&nbsp;can&nbsp;contain&nbsp;non-ASCII&nbsp;characters.<br>
+&nbsp;<br>
+If&nbsp;check_circular&nbsp;is&nbsp;true,&nbsp;then&nbsp;lists,&nbsp;dicts,&nbsp;and&nbsp;custom&nbsp;encoded<br>
+objects&nbsp;will&nbsp;be&nbsp;checked&nbsp;for&nbsp;circular&nbsp;references&nbsp;during&nbsp;encoding&nbsp;to<br>
+prevent&nbsp;an&nbsp;infinite&nbsp;recursion&nbsp;(which&nbsp;would&nbsp;cause&nbsp;an&nbsp;OverflowError).<br>
+Otherwise,&nbsp;no&nbsp;such&nbsp;check&nbsp;takes&nbsp;place.<br>
+&nbsp;<br>
+If&nbsp;allow_nan&nbsp;is&nbsp;true,&nbsp;then&nbsp;NaN,&nbsp;Infinity,&nbsp;and&nbsp;-Infinity&nbsp;will&nbsp;be<br>
+encoded&nbsp;as&nbsp;such.&nbsp;&nbsp;This&nbsp;behavior&nbsp;is&nbsp;not&nbsp;JSON&nbsp;specification&nbsp;compliant,<br>
+but&nbsp;is&nbsp;consistent&nbsp;with&nbsp;most&nbsp;JavaScript&nbsp;based&nbsp;encoders&nbsp;and&nbsp;decoders.<br>
+Otherwise,&nbsp;it&nbsp;will&nbsp;be&nbsp;a&nbsp;ValueError&nbsp;to&nbsp;encode&nbsp;such&nbsp;floats.<br>
+&nbsp;<br>
+If&nbsp;sort_keys&nbsp;is&nbsp;true,&nbsp;then&nbsp;the&nbsp;output&nbsp;of&nbsp;dictionaries&nbsp;will&nbsp;be<br>
+sorted&nbsp;by&nbsp;key;&nbsp;this&nbsp;is&nbsp;useful&nbsp;for&nbsp;regression&nbsp;tests&nbsp;to&nbsp;ensure<br>
+that&nbsp;JSON&nbsp;serializations&nbsp;can&nbsp;be&nbsp;compared&nbsp;on&nbsp;a&nbsp;day-to-day&nbsp;basis.<br>
+&nbsp;<br>
+If&nbsp;indent&nbsp;is&nbsp;a&nbsp;non-negative&nbsp;integer,&nbsp;then&nbsp;JSON&nbsp;array<br>
+elements&nbsp;and&nbsp;object&nbsp;members&nbsp;will&nbsp;be&nbsp;pretty-printed&nbsp;with&nbsp;that<br>
+indent&nbsp;level.&nbsp;&nbsp;An&nbsp;indent&nbsp;level&nbsp;of&nbsp;0&nbsp;will&nbsp;only&nbsp;insert&nbsp;newlines.<br>
+None&nbsp;is&nbsp;the&nbsp;most&nbsp;compact&nbsp;representation.<br>
+&nbsp;<br>
+If&nbsp;specified,&nbsp;separators&nbsp;should&nbsp;be&nbsp;an&nbsp;(item_separator,&nbsp;key_separator)<br>
+tuple.&nbsp;&nbsp;The&nbsp;default&nbsp;is&nbsp;(',&nbsp;',&nbsp;':&nbsp;')&nbsp;if&nbsp;*indent*&nbsp;is&nbsp;``None``&nbsp;and<br>
+(',',&nbsp;':&nbsp;')&nbsp;otherwise.&nbsp;&nbsp;To&nbsp;get&nbsp;the&nbsp;most&nbsp;compact&nbsp;JSON&nbsp;representation,<br>
+you&nbsp;should&nbsp;specify&nbsp;(',',&nbsp;':')&nbsp;to&nbsp;eliminate&nbsp;whitespace.<br>
+&nbsp;<br>
+If&nbsp;specified,&nbsp;default&nbsp;is&nbsp;a&nbsp;function&nbsp;that&nbsp;gets&nbsp;called&nbsp;for&nbsp;objects<br>
+that&nbsp;can't&nbsp;otherwise&nbsp;be&nbsp;serialized.&nbsp;&nbsp;It&nbsp;should&nbsp;return&nbsp;a&nbsp;JSON&nbsp;encodable<br>
+version&nbsp;of&nbsp;the&nbsp;object&nbsp;or&nbsp;raise&nbsp;a&nbsp;``TypeError``.</tt></dd></dl>
+
+<dl><dt><a name="DateTimeEncoder-encode"><strong>encode</strong></a>(self, o)</dt><dd><tt>Return&nbsp;a&nbsp;JSON&nbsp;string&nbsp;representation&nbsp;of&nbsp;a&nbsp;Python&nbsp;data&nbsp;structure.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;from&nbsp;json.encoder&nbsp;import&nbsp;<a href="json.encoder.html#JSONEncoder">JSONEncoder</a><br>
+&gt;&gt;&gt;&nbsp;<a href="json.encoder.html#JSONEncoder">JSONEncoder</a>().<a href="#DateTimeEncoder-encode">encode</a>({"foo":&nbsp;["bar",&nbsp;"baz"]})<br>
+'{"foo":&nbsp;["bar",&nbsp;"baz"]}'</tt></dd></dl>
+
+<dl><dt><a name="DateTimeEncoder-iterencode"><strong>iterencode</strong></a>(self, o, _one_shot=False)</dt><dd><tt>Encode&nbsp;the&nbsp;given&nbsp;object&nbsp;and&nbsp;yield&nbsp;each&nbsp;string<br>
+representation&nbsp;as&nbsp;available.<br>
+&nbsp;<br>
+For&nbsp;example::<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;chunk&nbsp;in&nbsp;<a href="json.encoder.html#JSONEncoder">JSONEncoder</a>().<a href="#DateTimeEncoder-iterencode">iterencode</a>(bigobject):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mysocket.write(chunk)</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="json.encoder.html#JSONEncoder">json.encoder.JSONEncoder</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="json.encoder.html#JSONEncoder">json.encoder.JSONEncoder</a>:<br>
+<dl><dt><strong>item_separator</strong> = ', '</dl>
+
+<dl><dt><strong>key_separator</strong> = ': '</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-create_channel"><strong>create_channel</strong></a>(channel_name: str, private: bool, creator_id: int)</dt><dd><tt>Creates&nbsp;a&nbsp;channel&nbsp;with&nbsp;given&nbsp;channel_name,&nbsp;privacy&nbsp;status.<br>
+The&nbsp;creator&nbsp;will&nbsp;be&nbsp;the&nbsp;user&nbsp;with&nbsp;u_id&nbsp;==&nbsp;creator_id.<br>
+Returns&nbsp;the&nbsp;channel_id&nbsp;of&nbsp;the&nbsp;newly&nbsp;created&nbsp;channel.</tt></dd></dl>
+ <dl><dt><a name="-create_hangman"><strong>create_hangman</strong></a>(word: str, creator_id: int, channel_id: int, topic: str = None)</dt><dd><tt>Creates&nbsp;a&nbsp;hangman&nbsp;game&nbsp;with&nbsp;a&nbsp;given&nbsp;word&nbsp;belonging&nbsp;to&nbsp;a&nbsp;certain&nbsp;topic.<br>
+created&nbsp;by&nbsp;a&nbsp;user&nbsp;with&nbsp;user_id&nbsp;==&nbsp;creator_id&nbsp;and&nbsp;in&nbsp;channel<br>
+with&nbsp;channel_id&nbsp;==&nbsp;channel_id.<br>
+Returns&nbsp;the&nbsp;hangman_id&nbsp;of&nbsp;the&nbsp;newly&nbsp;created&nbsp;hangman.</tt></dd></dl>
+ <dl><dt><a name="-create_message"><strong>create_message</strong></a>(author_id: int, message_content: str, channel_id: int)</dt><dd><tt>Creates&nbsp;a&nbsp;message&nbsp;from&nbsp;user&nbsp;with&nbsp;matching&nbsp;u_id&nbsp;==&nbsp;author&nbsp;id&nbsp;with<br>
+message&nbsp;content&nbsp;equal&nbsp;to&nbsp;message&nbsp;content&nbsp;and&nbsp;in&nbsp;channel&nbsp;with<br>
+channel_id&nbsp;==&nbsp;channel_id.<br>
+Returns&nbsp;the&nbsp;message_id&nbsp;of&nbsp;the&nbsp;newly&nbsp;created&nbsp;message.</tt></dd></dl>
+ <dl><dt><a name="-create_standup"><strong>create_standup</strong></a>(start_time: datetime.datetime, finish_time: datetime.datetime, creator_id: int, channel_id: int)</dt><dd><tt>Creates&nbsp;a&nbsp;standup&nbsp;ranging&nbsp;from&nbsp;start_time&nbsp;to&nbsp;finish_time<br>
+created&nbsp;by&nbsp;a&nbsp;user&nbsp;with&nbsp;user_id&nbsp;==&nbsp;creator_id&nbsp;and&nbsp;in&nbsp;channel<br>
+with&nbsp;channel_id&nbsp;==&nbsp;channel_id.<br>
+Returns&nbsp;the&nbsp;standup_id&nbsp;of&nbsp;the&nbsp;newly&nbsp;created&nbsp;standup.</tt></dd></dl>
+ <dl><dt><a name="-create_unsent_message_id"><strong>create_unsent_message_id</strong></a>(message_id: int)</dt><dd><tt>Create&nbsp;unsent&nbsp;message&nbsp;id<br>
+Return&nbsp;True&nbsp;if&nbsp;successful,&nbsp;otherwise&nbsp;return&nbsp;None</tt></dd></dl>
+ <dl><dt><a name="-create_user"><strong>create_user</strong></a>(firstname: str, lastname: str, email: str, password: str)</dt><dd><tt>Creates&nbsp;a&nbsp;user&nbsp;with&nbsp;given&nbsp;firstname,&nbsp;lastname,&nbsp;email&nbsp;and&nbsp;password.<br>
+By&nbsp;default&nbsp;this&nbsp;user&nbsp;will&nbsp;not&nbsp;be&nbsp;logged&nbsp;in&nbsp;or&nbsp;have&nbsp;a&nbsp;handle.<br>
+Returns&nbsp;the&nbsp;user_id&nbsp;of&nbsp;the&nbsp;newly&nbsp;created&nbsp;user.</tt></dd></dl>
+ <dl><dt><a name="-decode_datetime"><strong>decode_datetime</strong></a>(emp_dict)</dt><dd><tt>Serialize&nbsp;datetime&nbsp;into&nbsp;json</tt></dd></dl>
+ <dl><dt><a name="-delete_channel"><strong>delete_channel</strong></a>(channel_id: int)</dt><dd><tt>Deletes&nbsp;a&nbsp;channel&nbsp;with&nbsp;given&nbsp;channel_id.<br>
+Returns&nbsp;None&nbsp;if&nbsp;the&nbsp;channel&nbsp;was&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-delete_hangman"><strong>delete_hangman</strong></a>(hangman_id: int)</dt><dd><tt>Deletes&nbsp;a&nbsp;hangman&nbsp;with&nbsp;given&nbsp;hangman_id.<br>
+Returns&nbsp;None&nbsp;if&nbsp;the&nbsp;hangman&nbsp;was&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-delete_message"><strong>delete_message</strong></a>(message_id: int)</dt><dd><tt>Deletes&nbsp;a&nbsp;message&nbsp;with&nbsp;given&nbsp;message_id.<br>
+Returns&nbsp;None&nbsp;if&nbsp;the&nbsp;message&nbsp;was&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-delete_standup"><strong>delete_standup</strong></a>(standup_id: int)</dt><dd><tt>Deletes&nbsp;a&nbsp;standup&nbsp;with&nbsp;given&nbsp;standup_id.<br>
+Returns&nbsp;None&nbsp;if&nbsp;the&nbsp;standup&nbsp;was&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-delete_unsent_message_id"><strong>delete_unsent_message_id</strong></a>(message_id: int)</dt><dd><tt>Delete&nbsp;the&nbsp;unsent&nbsp;message&nbsp;id<br>
+If&nbsp;successful&nbsp;return&nbsp;True,&nbsp;otherwise&nbsp;return&nbsp;None</tt></dd></dl>
+ <dl><dt><a name="-delete_user"><strong>delete_user</strong></a>(user_id: int)</dt><dd><tt>Deletes&nbsp;a&nbsp;user&nbsp;with&nbsp;given&nbsp;user_id.<br>
+Returns&nbsp;None&nbsp;if&nbsp;the&nbsp;user&nbsp;was&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-get_all_channel_ids"><strong>get_all_channel_ids</strong></a>()</dt><dd><tt>Get&nbsp;all&nbsp;channel&nbsp;ids&nbsp;into&nbsp;a&nbsp;list</tt></dd></dl>
+ <dl><dt><a name="-get_all_hangman_ids"><strong>get_all_hangman_ids</strong></a>()</dt><dd><tt>Get&nbsp;all&nbsp;hangman&nbsp;ids&nbsp;into&nbsp;a&nbsp;list</tt></dd></dl>
+ <dl><dt><a name="-get_all_message_ids"><strong>get_all_message_ids</strong></a>()</dt><dd><tt>Get&nbsp;all&nbsp;message&nbsp;ids&nbsp;into&nbsp;a&nbsp;list</tt></dd></dl>
+ <dl><dt><a name="-get_all_standup_ids"><strong>get_all_standup_ids</strong></a>()</dt><dd><tt>Get&nbsp;all&nbsp;standup&nbsp;ids&nbsp;into&nbsp;a&nbsp;list</tt></dd></dl>
+ <dl><dt><a name="-get_all_unsent_message_ids"><strong>get_all_unsent_message_ids</strong></a>()</dt><dd><tt>Get&nbsp;all&nbsp;unsent&nbsp;message&nbsp;ids&nbsp;into&nbsp;a&nbsp;list</tt></dd></dl>
+ <dl><dt><a name="-get_all_user_ids"><strong>get_all_user_ids</strong></a>()</dt><dd><tt>Get&nbsp;all&nbsp;user&nbsp;ids&nbsp;into&nbsp;a&nbsp;list</tt></dd></dl>
+ <dl><dt><a name="-get_channel"><strong>get_channel</strong></a>(channel_id: int)</dt><dd><tt>Gets&nbsp;a&nbsp;channel&nbsp;with&nbsp;given&nbsp;channel_id.<br>
+Returns&nbsp;None&nbsp;if&nbsp;a&nbsp;matching&nbsp;channel&nbsp;is&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-get_file_directory"><strong>get_file_directory</strong></a>(file_name)</dt><dd><tt>Return&nbsp;a&nbsp;file&nbsp;dirctory&nbsp;when&nbsp;the&nbsp;file&nbsp;name&nbsp;is&nbsp;passed&nbsp;in</tt></dd></dl>
+ <dl><dt><a name="-get_hangman"><strong>get_hangman</strong></a>(hangman_id: int)</dt><dd><tt>Gets&nbsp;a&nbsp;hangman&nbsp;with&nbsp;the&nbsp;given&nbsp;hangman_id.<br>
+Returns&nbsp;None&nbsp;if&nbsp;a&nbsp;matching&nbsp;hangman&nbsp;is&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-get_message"><strong>get_message</strong></a>(message_id: int)</dt><dd><tt>Gets&nbsp;a&nbsp;message&nbsp;with&nbsp;given&nbsp;message_id.<br>
+Returns&nbsp;None&nbsp;if&nbsp;the&nbsp;message&nbsp;is&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-get_path"><strong>get_path</strong></a>()</dt><dd><tt>Get&nbsp;the&nbsp;path&nbsp;of&nbsp;the&nbsp;file&nbsp;and&nbsp;return&nbsp;a&nbsp;complete&nbsp;filename</tt></dd></dl>
+ <dl><dt><a name="-get_standup"><strong>get_standup</strong></a>(standup_id: int)</dt><dd><tt>Gets&nbsp;a&nbsp;standup&nbsp;with&nbsp;the&nbsp;given&nbsp;standup_id.<br>
+Returns&nbsp;None&nbsp;if&nbsp;a&nbsp;matching&nbsp;standup&nbsp;is&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-get_user"><strong>get_user</strong></a>(user_id: int)</dt><dd><tt>Gets&nbsp;a&nbsp;user&nbsp;with&nbsp;given&nbsp;user_id.<br>
+Returns&nbsp;None&nbsp;if&nbsp;the&nbsp;user&nbsp;is&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-setup_channels_json"><strong>setup_channels_json</strong></a>()</dt><dd><tt>Sets&nbsp;up&nbsp;the&nbsp;channels&nbsp;json&nbsp;file&nbsp;to&nbsp;have&nbsp;the&nbsp;correct&nbsp;structure.<br>
+Call&nbsp;this&nbsp;to&nbsp;reset/setup&nbsp;the&nbsp;channels.json&nbsp;file.</tt></dd></dl>
+ <dl><dt><a name="-setup_hangman_json"><strong>setup_hangman_json</strong></a>()</dt><dd><tt>Sets&nbsp;up&nbsp;the&nbsp;hangman&nbsp;json&nbsp;file&nbsp;to&nbsp;have&nbsp;the&nbsp;correct&nbsp;structure.<br>
+Call&nbsp;this&nbsp;to&nbsp;reset/setup&nbsp;the&nbsp;hangman.json&nbsp;file.</tt></dd></dl>
+ <dl><dt><a name="-setup_messages_json"><strong>setup_messages_json</strong></a>()</dt><dd><tt>Sets&nbsp;up&nbsp;the&nbsp;messages&nbsp;json&nbsp;file&nbsp;to&nbsp;have&nbsp;the&nbsp;correct&nbsp;structure.<br>
+Call&nbsp;this&nbsp;to&nbsp;reset/setup&nbsp;the&nbsp;messages.json&nbsp;file.</tt></dd></dl>
+ <dl><dt><a name="-setup_standups_json"><strong>setup_standups_json</strong></a>()</dt><dd><tt>Sets&nbsp;up&nbsp;the&nbsp;standups&nbsp;json&nbsp;file&nbsp;to&nbsp;have&nbsp;the&nbsp;correct&nbsp;structure.<br>
+Call&nbsp;this&nbsp;to&nbsp;reset/setup&nbsp;the&nbsp;standups.json&nbsp;file.</tt></dd></dl>
+ <dl><dt><a name="-setup_users_json"><strong>setup_users_json</strong></a>()</dt><dd><tt>Sets&nbsp;up&nbsp;the&nbsp;users&nbsp;json&nbsp;file&nbsp;to&nbsp;have&nbsp;the&nbsp;correct&nbsp;structure.<br>
+Call&nbsp;this&nbsp;to&nbsp;reset/setup&nbsp;the&nbsp;users.json&nbsp;file.</tt></dd></dl>
+ <dl><dt><a name="-update_channel"><strong>update_channel</strong></a>(channel_id: int, channel_data: dict)</dt><dd><tt>Updates&nbsp;a&nbsp;channel&nbsp;with&nbsp;given&nbsp;channel_id.<br>
+This&nbsp;will&nbsp;replace&nbsp;all&nbsp;stored&nbsp;channel&nbsp;data&nbsp;for&nbsp;that&nbsp;channel.<br>
+Returns&nbsp;None&nbsp;if&nbsp;the&nbsp;channel&nbsp;could&nbsp;not&nbsp;be&nbsp;updated.</tt></dd></dl>
+ <dl><dt><a name="-update_hangman"><strong>update_hangman</strong></a>(hangman_id: int, hangman_data: dict)</dt><dd><tt>Updates&nbsp;a&nbsp;hangman&nbsp;with&nbsp;the&nbsp;given&nbsp;hangman_id.<br>
+This&nbsp;will&nbsp;replace&nbsp;all&nbsp;stored&nbsp;hangman&nbsp;data&nbsp;for&nbsp;that&nbsp;hangman.<br>
+Returns&nbsp;None&nbsp;if&nbsp;a&nbsp;matching&nbsp;hangman&nbsp;is&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-update_message"><strong>update_message</strong></a>(message_id: int, message_data: dict)</dt><dd><tt>Updates&nbsp;a&nbsp;message&nbsp;with&nbsp;the&nbsp;given&nbsp;message_id.<br>
+This&nbsp;will&nbsp;replace&nbsp;all&nbsp;stored&nbsp;message&nbsp;data&nbsp;for&nbsp;that&nbsp;message.<br>
+Returns&nbsp;None&nbsp;if&nbsp;a&nbsp;matching&nbsp;message&nbsp;is&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-update_standup"><strong>update_standup</strong></a>(standup_id: int, standup_data: dict)</dt><dd><tt>Updates&nbsp;a&nbsp;standup&nbsp;with&nbsp;the&nbsp;given&nbsp;standup_id.<br>
+This&nbsp;will&nbsp;replace&nbsp;all&nbsp;stored&nbsp;standup&nbsp;data&nbsp;for&nbsp;that&nbsp;standup.<br>
+Returns&nbsp;None&nbsp;if&nbsp;a&nbsp;matching&nbsp;standup&nbsp;is&nbsp;not&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-update_user"><strong>update_user</strong></a>(user_id: int, user_data: dict)</dt><dd><tt>Updates&nbsp;a&nbsp;user&nbsp;with&nbsp;the&nbsp;given&nbsp;user_id.<br>
+This&nbsp;will&nbsp;replace&nbsp;all&nbsp;stored&nbsp;user&nbsp;data&nbsp;for&nbsp;that&nbsp;user.<br>
+Returns&nbsp;None&nbsp;if&nbsp;a&nbsp;matching&nbsp;user&nbsp;is&nbsp;not&nbsp;found.</tt></dd></dl>
+</td></tr></table>
+</body></html>

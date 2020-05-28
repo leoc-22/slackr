@@ -1,0 +1,183 @@
+# Assumptions
+
+## user_remove
+
+* assume when a user is removed, it should also be removed from the channels the user was part of
+
+* assume the messages the removed user sent in the past should not be removed
+
+* assume a slackr owner cannot remove itself, InputError will be raised, "A Slackr Owner Cannot Remove Itself"
+
+* assume a slackr owner can remove anther slackr owner
+
+
+## create_list
+
+* assume that inputting an invalid user login token will raise InputError
+
+* In create_test1, assume that None is an invalid channel name.
+Assume that input None as the channel name into create() will raise InputError
+
+* In create_test2, assume that create() checks on the length of channel name, input a name with length > 20 will raise InputError
+the input name has length == 25
+
+* In create_test3, assume that create() checks on the length of channel name, input a new name with length == 20 should not raise InputError
+
+* In create_test4, assume that input a name of length == 0 will raise InputError
+
+---
+## Users_all test
+
+* In users_all(u_id, token), this function does not check if the token and u_id align. 
+
+* Assume that users_all returns the same list regardless of the input token, provided that no new user is created and the input token is valid
+
+## listall_test
+
+* In listall_test1, assume that register(), login(), logout() works fine. When no channel is created, assume that input a token into listall() will return a dict with an empty list 
+
+* In listall_test2, assume that register(), login(), logout() work fine. One channel has been created, assume that listall() will return a dict containing the detail of the channel 
+
+* In listall_test3, assume that register(), login(), logout() work fine. I created 2 users and each user created a channel respectively. Call listall() with each user's token, the 2 dictionaries returned by listall() should be of the same size and contains the 2 channels
+
+---
+
+## list_test
+
+* Assume that channel_details() works fine, when the given user is not is the channel, call channel_details will raise AccessError
+
+* In list_test1, assume that register(), login(), logout() work fine. Assume that when no channel is created, list() will return an empty dictionary
+
+* In list_test2, assume that register(), login(), logout() work fine. Assume that when a user created, and input the user's token into list(), it will retrun a dict containing the details of the channel 
+
+* In list_test3, assume that register(), login(), logout() work fine. Assume that when each of 2 users created a channel respectively, list() will only return the details of the channel(s) that are related to the input token (a token only relates to one user) 
+
+---
+
+## user_profile_test
+
+* user_profile() does not check if u_if align with token, otherwise uers_all will not work. As users_all gets all the users using one's token.
+
+* user_profile returns the user details only based on u_id
+
+* Assume that handle_str initially is set to be '' by default
+
+* In user_profile_test1, assume that user_profile checks on the validity of u_id, assume that input an invalid u_id will raises InputError
+
+* In user_profile_test2, assume that handle_str returned by is in default format, which is the concatenated string of name_first and name_last.
+i.e. "softwareengineer"
+Assume that name_first, name_last, email, token returned by user_profile are the same as those I used to register 
+
+---
+
+## user_profile_setname
+
+* In user_profile_setname test1, assume that pass the token returned by auth_login into user_profile_setname is okay
+Assume that user_profile_setname checks on the length of first name, input a first name of length > 50 will raise InputError
+
+* In user_profile_setname test2, assume that pass the token returned by auth_login into user_profile_setname is okay
+Assume that user_profile_setname checks on the length of first name, input a first name of length < 1 will raise InputError
+
+* In user_profile_setname test3, assume that pass the token returned by auth_login into user_profile_setname is okay
+Assume that input a first name of length == 50 will not cause any problem
+Assume that handle_str is just the concatenation of the previous firstname and last name, that is, the handle_str remains unchanged even if the first name is changed 
+
+* In user_profile_setname test4, assume that pass the token returned by auth_login into user_profile_setname is okay
+Assume that input a first name of length == 1 will not cause any problem
+Assume that handle_str is just the concatenation of the previous firstname and last name, that is, the handle_str remains unchanged even if the first name is changed 
+
+* In user_profile_setname test5, assume that pass the token returned by auth_login into user_profile_setname is okay
+Assume that user_profile_setname checks on the length of last name, input a last name of length > 50 will raise InputError
+
+* In user_profile_setname test6, assume that pass the token returned by auth_login into user_profile_setname is okay
+Assume that user_profile_setname checks on the length of last name, input a last name of length < 1 will raise InputError
+
+* In user_profile_setname test7, assume that pass the token returned by auth_login into user_profile_setname is okay
+Assume that input a last name of length == 50 will not cause any problem
+Assume that handle_str is just the concatenation of the firstname and the previous last name, that is, the handle_str remains unchanged even if the last name is changed 
+
+* In user_profile_setname test8, assume that pass the token returned by auth_login into user_profile_setname is okay
+Assume that input a last name of length == 1 will not cause any problem
+Assume that handle_str is just the concatenation of the firstname and the previous last name, that is, the handle_str remains unchanged even if the last name is changed 
+
+* In user_profile_setname test9, assume that pass the token returned by auth_login into user_profile_setname is okay
+Assume that change both first and last name at the same time is okay, will not raise any error
+Assume that handle_str is just the concatenation of the previous firstname and the previous last name,
+that is, the handle_str remains unchanged even if the first and last name is changed 
+
+* In user_profile_setname test10, assume that pass the token returned by auth_login into user_profile_setname is okay
+Assume that input an invalid first name into user_profile_setname will raise InputError even though the input last name is valid
+with the scenario mentioned, user_profile_setname will do nothing and user detail remains unchanged
+
+* In user_profile_setname test11, assume that pass the token returned by auth_login into user_profile_setname is okay
+Assume that input an invalid last name into user_profile_setname will raise InputError even though the input first name is valid
+with the scenario mentioned, user_profile_setname will do nothing and user detail remains unchanged
+
+---
+
+## user_profile_setemail
+
+* In user_profile_setemail test1, assume that input an invalid email address into user_profile_setemail will raise InputError
+After trying to reset the user email into an invalid email, all the user detail remains unchanged
+
+* In user_profile_setemail test2, assume that reset email into an used email will raise InputError
+Assume that after trying to reset user1's email into user2's email, user1 detail will not be changed
+Assume that after trying to reset user2's email into user1's email, user2 detail will not be changed
+
+* In user_profile_setemail test3, assume that after reseting email, other user detail will remain unchanged
+
+---
+
+## user_profile_sethandle
+
+* In user_profile_sethandle test1, assume that input a new handle_str not satisfying
+2 <= length <= 20 will raise InputError
+Assume that after trying to reset handle_str into valid strings, all the user detail will remain unchanged
+user's handle_str will still be the original one, that is, the concatenation of first and last name 
+
+* In user_profile_sethandle test2, assume that user_profile works fine and is able to return user's handle_str
+given the valid user token and u_id
+Assume that input a used handle into user_profile_sethandle will raise InputError
+Assume that after trying to reset user's handle into another used handle, the user's handle will ramain unchanged
+
+* In user_profile_sethandle test3, assume that "hardwareengineer" is a valid handle 
+Assume that after reseting the handle, other user detail will remain the same
+
+---
+
+## message_test
+
+* When implementing ```message_test.py```, functions in ```auth.py```, ```channel.py```, ```channels.py``` and ```message.py``` were used. Therefore we assume these functions are working correctly. 
+
+* When implementing ```test_message_send_2_messages_send_successful``` function, the function ```channel_messages``` is called to check if multiple messages exist. We assume that the new message adds to the end of the list. For instance, 
+    
+    ```python
+    def channel_messages(token, channel_id, start):
+    return {
+        'messages': [
+            {
+                'message_id': 1,
+                'u_id': 1,
+                'message': 'Hello world',
+                'time_created': 1582426789,
+            }, 
+            {
+                'message_id': 2,
+                'u_id': 1,
+                'message': 'Goodbye world',
+                'time_created': 1582426780,
+            }
+        ],
+        'start': 0,
+        'end': 50,
+    }
+    ```
+
+    where the new message has ```'message_id' : 2```.
+
+* When implementing ```test_message_remove_multiple_created_one_removed``` function, we assume that after the message is removed, its ```message_id``` also disappeared, and the messages after the removed message retain their ```message_id```.
+
+## channel_leave
+
+* We are assuming that when an owner of a channel leaves the channel, they are still an owner of the channel if they rejoin.
+
